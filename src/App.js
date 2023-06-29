@@ -9,16 +9,20 @@ import Axios from "axios";
 
 function App() {
 const [details , setDetails]= useState({});
+const [formattedDate, setFormattedDate] = useState('');
 const fetchData = async () =>{
    const response = await Axios.get("https://randomuser.me/api/");
    const data = await response.data;
    console.log(data);
 
-  //  const date = await response.data.dob.date ;
-  //  console.log(date);
 
    const details = data.results[0];
-   setDetails(details);
+
+    const date = new Date(details.dob?.date);
+   const formattedDate = date.toLocaleDateString('en-US')
+   console.log(formattedDate);
+   setDetails(details, formattedDate);
+  //  setFormattedDate(formattedDate)
 }
 
 useEffect(() => {

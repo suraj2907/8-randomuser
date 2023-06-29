@@ -3,6 +3,7 @@ import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 
 const MyCard = ({ details }) => {
+   
   return (
     <Card>
       <CardBody className="text-center">
@@ -19,7 +20,7 @@ const MyCard = ({ details }) => {
             <span> {details.name?.last} </span>
           </h1>
         </CardTitle>
-        <CardText>
+        <div>
           <FaMapMarkedAlt />
           <span style={{ paddingLeft: "10px" }}>
             
@@ -36,11 +37,11 @@ const MyCard = ({ details }) => {
           </div>
 
           <div>
-            <span style={{ color : "blue", fontWeight: "semi-bold"}}> Age: {details.dob?.age} </span>
-            <span style={{ color : "blue", fontWeight: "semi-bold"}}> DOB:
-              </span>
+            <span style={{ color : "blue", fontWeight: "600"}}> Age: {details.dob?.age} </span>
+            {/* <span style={{ color : "blue", fontWeight: "600"}}> DOB: {details.formattedDate}
+              </span> */}
           </div>
-        </CardText>
+        </div>
       </CardBody>
     </Card>
   );
